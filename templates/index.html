@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital AI Analytics System</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         MAIN CONTAINER
+    ========================================== -->
+
+    <div class="container">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header>
+
+            <h1>🏥 Hospital AI Analytics System</h1>
+
+            <p>
+                AI-Based Patient Prediction & Healthcare Analytics
+            </p>
+
+        </header>
+
+
+
+        <!-- =====================================
+             PATIENT INFORMATION
+        ====================================== -->
+
+        <section class="card">
+
+            <h2>Patient Information</h2>
+
+            <div class="form-grid">
+
+
+                <!-- Age -->
+
+                <div class="form-group">
+
+                    <label for="Age">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Age"
+                        min="0"
+                        max="120"
+                        placeholder="Enter age"
+                    >
+
+                </div>
+
+
+
+                <!-- Gender -->
+
+                <div class="form-group">
+
+                    <label for="Gender">
+                        Gender
+                    </label>
+
+                    <select id="Gender">
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Condition -->
+
+                <div class="form-group">
+
+                    <label for="Condition">
+                        Medical Condition
+                    </label>
+
+                    <input
+                        type="text"
+                        id="Condition"
+                        placeholder="Example: Diabetes"
+                    >
+
+                </div>
+
+
+
+                <!-- Procedure -->
+
+                <div class="form-group">
+
+                    <label for="Procedure">
+                        Medical Procedure
+                    </label>
+
+                    <input
+                        type="text"
+                        id="Procedure"
+                        placeholder="Example: Surgery"
+                    >
+
+                </div>
+
+
+
+                <!-- Cost -->
+
+                <div class="form-group">
+
+                    <label for="Cost">
+                        Treatment Cost
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Cost"
+                        min="0"
+                        step="0.01"
+                        placeholder="Enter cost"
+                    >
+
+                </div>
+
+
+
+                <!-- Length of Stay -->
+
+                <div class="form-group">
+
+                    <label for="Length_of_Stay">
+                        Length of Stay (Days)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Length_of_Stay"
+                        min="0"
+                        step="1"
+                        placeholder="Example: 5"
+                    >
+
+                </div>
+
+
+
+                <!-- Satisfaction -->
+
+                <div class="form-group">
+
+                    <label for="Satisfaction">
+                        Patient Satisfaction
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Satisfaction"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                        placeholder="0 - 10"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PREDICTION BUTTONS
+        ====================================== -->
+
+        <section class="actions">
+
+            <button
+                onclick="predictReadmission()"
+                class="btn">
+                Predict Readmission
+            </button>
+
+
+            <button
+                onclick="predictCost()"
+                class="btn">
+                Estimate Treatment Cost
+            </button>
+
+
+            <button
+                onclick="predictCondition()"
+                class="btn">
+                Predict Condition
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RESULTS
+        ====================================== -->
+
+        <section class="results">
+
+
+            <!-- Readmission Result -->
+
+            <div class="result-card">
+
+                <h3>
+                    🔴 Readmission Risk
+                </h3>
+
+                <div id="readmissionResult">
+
+                    <p>
+                        No prediction yet
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Cost Result -->
+
+            <div class="result-card">
+
+                <h3>
+                    💰 Treatment Cost
+                </h3>
+
+                <div id="costResult">
+
+                    <p>
+                        No prediction yet
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Condition Result -->
+
+            <div class="result-card">
+
+                <h3>
+                    🩺 Predicted Condition
+                </h3>
+
+                <div id="conditionResult">
+
+                    <p>
+                        No prediction yet
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+            <p>
+                AI-Based Hospital Analytics System
+            </p>
+
+            <p>
+                Developed using Python, Machine Learning & Flask
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- Connect JavaScript -->
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>
